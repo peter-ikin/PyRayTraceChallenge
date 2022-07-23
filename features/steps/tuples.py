@@ -158,7 +158,7 @@ def step_impl(context):
     """
     result = context.a1 + context.a2
     expected = Tuple(1, 1, 6, 1)
-    assert(result, expected)
+    assert(result == expected)
 
 
 @given("p1 <- point\(3, 2, 1\)")
@@ -184,7 +184,7 @@ def step_impl(context):
     """
     result = context.p1 - context.p2
     expected = Vector(-2, -4, -6)
-    assert(result, expected)
+    assert(result == expected)
 
 
 @given("p <- point\(3, 2, 1\)")
@@ -210,7 +210,7 @@ def step_impl(context):
     """
     result = context.p - context.v
     expected = Point(-2, -4, -6)
-    assert(result, expected)
+    assert(result == expected)
 
 
 @given("v1 <- vector\(3, 2, 1\)")
@@ -236,7 +236,7 @@ def step_impl(context):
     """
     result = context.v1 - context.v2
     expected = Vector(-2, -4, -6)
-    assert(result, expected)
+    assert(result == expected)
 
 
 @given("zero <- vector\(0, 0, 0\)")
@@ -262,7 +262,7 @@ def step_impl(context):
     """
     result = context.zero - context.v
     expected = Vector(-1, 2, -3)
-    assert(result, expected)
+    assert(result == expected)
 
 
 @given("a <- tuple\(1, -2, 3, -4\)")
@@ -280,4 +280,4 @@ def step_impl(context):
     """
     result = -context.a
     expected = Tuple(-1, 2, -3, 4)
-    assert(result, expected)
+    assert(result == expected)
