@@ -66,6 +66,31 @@ class Tuple:
             -self.w
         )
 
+    def __mul__(self, other):
+        if isinstance(other, int) or isinstance(other, float):
+            return self.__class__(
+                self.x * other,
+                self.y * other,
+                self.z * other,
+                self.w * other
+            )
+        else:
+            raise TypeError('Can only perform scalar multiply with int or float')
+
+    def __rmul__(self, other):
+        return self.__mul__(other)
+
+    def __truediv__(self, other):
+        if isinstance(other, int) or isinstance(other, float):
+            return self.__class__(
+                self.x / other,
+                self.y / other,
+                self.z / other,
+                self.w / other
+            )
+        else:
+            raise TypeError('Can only perform scalar division with int or float')
+
 
 class Point(Tuple):
     def __init__(self, x, y, z, w=1.0):

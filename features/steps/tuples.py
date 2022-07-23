@@ -281,3 +281,41 @@ def step_impl(context):
     result = -context.a
     expected = Tuple(-1, 2, -3, 4)
     assert(result == expected)
+
+
+@then("a \* 3\.5 = tuple\(3\.5, -7, 10\.5, -14\)")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    result = context.a * 3.5
+    expected = Tuple(3.5, -7, 10.5, -14)
+    assert(result == expected)
+
+@then("3\.5 \* a = tuple\(3\.5, -7, 10\.5, -14\)")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    result = 3.5 * context.a
+    expected = Tuple(3.5, -7, 10.5, -14)
+    assert(result == expected)
+
+@then("a \* 0\.5 = tuple\(0\.5, -1, 1\.5, -2\)")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    result = context.a * 0.5
+    expected = Tuple(0.5, -1, 1.5, -2)
+    assert(result == expected)
+
+
+@then("a / 2 = tuple\(0\.5, -1, 1\.5, -2\)")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    result = context.a / 2
+    expected = Tuple(0.5, -1, 1.5, -2)
+    assert(result == expected)
