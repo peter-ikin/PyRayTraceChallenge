@@ -319,3 +319,63 @@ def step_impl(context):
     result = context.a / 2
     expected = Tuple(0.5, -1, 1.5, -2)
     assert(result == expected)
+
+
+@given("v <- vector\(1, 0, 0\)")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    context.v = Vector(1, 0, 0)
+
+
+@then("magnitude\(v\) = 1")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    result = context.v.magnitude()
+    expected = 1
+    assert (result == expected)
+
+
+@given("v <- vector\(0, 1, 0\)")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    context.v = Vector(0, 1, 0)
+
+
+@given("v <- vector\(0, 0, 1\)")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    context.v = Vector(0, 0, 1)
+
+
+@given("v <- vector\(1, 2, 3\)")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    context.v = Vector(1, 2, 3)
+
+
+@then("magnitude\(v\) = √14")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    result = context.v.magnitude()
+    expected = math.sqrt(14)
+    assert (result == expected)
+
+
+@given("v <- vector\(-1, -2, -3\)")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    context.v = Vector(-1, -2, -3)

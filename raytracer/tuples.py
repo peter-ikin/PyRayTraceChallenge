@@ -1,3 +1,5 @@
+import math
+
 EPSILON = 0.00001
 
 
@@ -90,6 +92,21 @@ class Tuple:
             )
         else:
             raise TypeError('Can only perform scalar division with int or float')
+
+    def magnitude(self):
+        return math.sqrt(self.x ** 2 + self.y ** 2 + self.z ** 2 + self.w ** 2)
+
+    def normalize(self):
+        length = self.magnitude()
+        if length:
+            return self.__class__(
+                self.x / length,
+                self.y / length,
+                self.z / length,
+                self.w / length
+            )
+        else:
+            return self.__class__(0, 0, 0, 0)
 
 
 class Point(Tuple):
